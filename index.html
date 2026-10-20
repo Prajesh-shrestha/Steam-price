@@ -3,28 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowest Price Steam Tracker</title>
-    <!-- Connect our CSS file -->
+    <title>Steam Price Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <a id="navBrand" class="nav-brand" style="cursor: pointer; text-decoration: none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Logo" class="steam-logo-img">
+            <span>Steam Deal Tracker</span>
+        </a>
+        <div class="nav-links">
+            <button id="btnHome" class="nav-btn active">Home</button>
+            <button id="btnSearch" class="nav-btn">Search</button>
+        </div>
+        <div class="currency-box">
+            <select id="currencySelect">
+                <option value="USD">USD ($)</option>
+                <option value="JPY">JPY (¥)</option>
+            </select>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>Lowest Price Tracker</h1>
-        <p>Find the cheapest historical price for any game.</p>
-        
-        <!-- The Search Area -->
-        <div class="search-box">
-            <input type="text" id="gameInput" placeholder="Enter a game title (e.g. Batman)">
-            <button id="searchBtn">Search</button>
+        <!-- HOME VIEW: Top Deals -->
+        <div id="homeView" class="view-section">
+            <header>
+                <h1>Featured Top Discounts</h1>
+                <p>The highest rated games currently on massive sales.</p>
+            </header>
+            <div id="homeResults" class="results-grid"></div>
         </div>
 
-        <!-- The Empty Container for Results -->
-        <div id="resultsContainer" class="results-area">
-            <!-- JavaScript will put the prices here -->
+        <!-- SEARCH VIEW: Custom Queries & Filters -->
+        <div id="searchView" class="view-section hidden">
+            <header>
+                <h1>Search Any Game</h1>
+                <p>Find historical lowest prices and current deals.</p>
+            </header>
+            
+            <div class="control-panel">
+                <div class="search-box">
+                    <input type="text" id="gameInput" placeholder="Enter a game title (e.g., Batman)">
+                    <button id="searchBtn">Search</button>
+                </div>
+                
+                <div class="filter-box">
+                    <label for="sortFilter">Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="relevance">Best Match</option>
+                        <option value="popularity">Popularity (Most Reviews)</option>
+                        <option value="priceLow">Price: Low to High</option>
+                        <option value="priceHigh">Price: High to Low</option>
+                        <option value="discount">Biggest Savings</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="searchResults" class="results-grid"></div>
+            <div id="paginationControls" class="pagination-controls"></div>
         </div>
     </div>
 
-    <!-- Connect our JavaScript file -->
     <script src="app.js"></script>
 </body>
 </html>
+
