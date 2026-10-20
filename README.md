@@ -58,7 +58,9 @@ Bash
 cd Steam-price
 Open index.html in a browser or launch it using an extension like VS Code Live Server.
 
-Future Improvements
+---
+
+Future Improvements:
 Create a curated "All-Time Lowest Deals" tab filtering games with over 2,000 positive reviews.
 
 Implement responsive CSS grid layouts for mobile viewports.
